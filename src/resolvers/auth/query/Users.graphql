@@ -1,0 +1,7 @@
+query users($usersGetRequest: UsersGetInput!) {
+    Users(usersGetRequest: $usersGetRequest) {
+        user_id
+        username
+        admin
+    }
+}

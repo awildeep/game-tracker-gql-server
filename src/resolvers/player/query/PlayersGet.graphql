@@ -1,0 +1,7 @@
+query playersGet($playersGetRequest: PlayersGetInput!) {
+  PlaysGet(playersGetRequest: $playersGetRequest){
+    player_id
+    name
+    active
+  }
+}

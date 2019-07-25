@@ -1,0 +1,15 @@
+mutation playDelete($playDeleteRequest: PlayDeleteInput!) {
+  PlayDelete(playDeleteRequest: $playDeleteRequest){
+    play_id
+    week {
+        week_id
+        date_played
+    }
+    player {
+        player_id
+        name
+        active
+    }
+    rank
+  }
+}

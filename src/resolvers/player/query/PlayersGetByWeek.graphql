@@ -1,0 +1,7 @@
+query playersGetByWeek($playerGetByWeekRequest: PlayerGetByWeekInput!) {
+  PlaysGetByWeek(playerGetByWeekRequest: $playerGetByWeekRequest){
+    player_id
+    name
+    active
+  }
+}

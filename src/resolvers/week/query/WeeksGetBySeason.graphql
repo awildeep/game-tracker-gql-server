@@ -1,0 +1,10 @@
+query weeksGetBySeason($weeksGetBySeasonRequest: WeeksGetBySeasonInput!) {
+  WeeksGetBySeason(weeksGetBySeasonRequest: $weeksGetBySeasonRequest){
+    week_id
+    date_played
+    plays {
+        play_id
+        rank
+    }
+  }
+}

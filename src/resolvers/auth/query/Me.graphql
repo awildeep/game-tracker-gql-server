@@ -1,0 +1,7 @@
+query me {
+    Me{
+        username
+        user_id
+        admin
+    }
+}

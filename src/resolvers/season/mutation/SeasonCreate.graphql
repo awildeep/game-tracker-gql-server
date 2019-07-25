@@ -1,0 +1,10 @@
+mutation seasonCreate($seasonCreateRequest: SeasonCreateInput!) {
+  SeasonCreate(seasonCreateRequest: $seasonCreateRequest){
+    season_id
+    name
+    weeks {
+      week_id
+      date_played
+    }
+  }
+}

@@ -1,0 +1,15 @@
+query playGet($playGetRequest: PlayGetInput!) {
+  PlayGet(playGetRequest: $playGetRequest){
+    play_id
+    week {
+        week_id
+        date_played
+    }
+    player {
+        player_id
+        name
+        active
+    }
+    rank
+  }
+}

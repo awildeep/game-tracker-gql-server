@@ -1,0 +1,7 @@
+mutation playerEdit($playerEditRequest: PlayerEditInput!) {
+  PlayEdit(playerEditRequest: $playerEditRequest){
+    player_id
+    name
+    active
+  }
+}

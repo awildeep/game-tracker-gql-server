@@ -1,0 +1,7 @@
+mutation playerCreate($playerCreateRequest: PlayerCreateInput!) {
+  PlayCreate(playerCreateRequest: $playerCreateRequest){
+    player_id
+    name
+    active
+  }
+}

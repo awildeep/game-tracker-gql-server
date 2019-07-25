@@ -1,0 +1,22 @@
+{
+  "events": {
+    "start": "osascript -e 'display notification \"Server started\" with title \"game-tracker-gql\"'",
+    "restart": "osascript -e 'display notification \"Server restarted\" with title \"game-tracker-gql\"'"
+  },
+  "restartable": "rs",
+  "ignore": [
+    ".git",
+    "node_modules/**/node_modules",
+    "lib"
+  ],
+  "verbose": true,
+  "execMap": {
+    "js": "node --harmony"
+  },
+  "watch": [
+    "src/**/*.ts",
+    "src/**/*.graphql"
+  ],
+  "ext": "ts,js,json,graphql",
+  "exec": "ts-node ./src/index.ts"
+}

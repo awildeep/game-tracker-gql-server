@@ -1,0 +1,10 @@
+mutation weekCreate($weekCreateRequest: WeekCreateInput!) {
+    WeekCreate(weekCreateRequest: $weekCreateRequest){
+        week_id
+        date_played
+        plays {
+            play_id
+            rank
+        }
+    }
+}

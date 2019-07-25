@@ -1,0 +1,10 @@
+mutation seasonDelete($seasonDeleteRequest: SeasonDeleteInput!) {
+  SeasonDelete(seasonDeleteRequest: $seasonDeleteRequest){
+    season_id
+    name
+    weeks {
+      week_id
+      date_played
+    }
+  }
+}

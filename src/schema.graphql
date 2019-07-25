@@ -1,0 +1,237 @@
+scalar Date
+
+type Query {
+    _ : Boolean
+}
+
+type Mutation {
+    _ : Boolean
+}
+
+type Subscription {
+    _ : Boolean
+}
+
+#AUTH
+type User {
+    user_id: ID!
+    username: String!
+    admin: Boolean
+}
+
+type Token {
+    token: String!
+}
+
+input UsersGetInput {
+    username: String
+    email: String
+}
+
+extend type Query {
+    Users(usersGetRequest: UsersGetInput!): [User!]
+    User(usersGetRequest: UsersGetInput!): User
+    Me: User
+}
+
+
+input SignUpInput {
+    username: String
+    name: String
+    password: String
+}
+
+input SignInInput {
+    username: String
+    password: String
+}
+
+
+extend type Mutation {
+    SignUp(signUpRequest: SignUpInput): Token!
+    SignIn(signInRequest: SignInInput): Token!
+}
+
+
+
+
+
+#PLAYER
+type Player {
+    player_id: ID
+    name: String!
+    active: Boolean
+}
+
+input PlayersGetInput {
+    active: Boolean
+}
+
+input PlayerGetInput {
+    player_id: ID
+}
+
+input PlayerGetByWeekInput {
+    week_id: ID
+}
+
+input PlayerCreateInput {
+    name: String!
+}
+
+input PlayerEditInput {
+    player_id: ID!
+    name: String
+    active: Boolean
+}
+input PlayerDeleteInput {
+    player_id: ID!
+}
+
+extend type Mutation {
+    PlayerCreate(playerCreateRequest: PlayerCreateInput!): Player
+    PlayerEdit(playerEditRequest: PlayerEditInput!): Player
+    PlayerDelete(playerDeleteRequest: PlayerDeleteInput!): Player
+}
+
+extend type Query {
+    PlayersGet(playersGetRequest: PlayersGetInput!): [Player]!
+    PlayerGet(playerGetRequest: PlayerGetInput!): Player
+    PlayersGetByWeek(playerGetByWeekRequest: PlayerGetByWeekInput!): [Player]!
+}
+
+#PLAY
+type Play {
+    play_id: ID
+    week: Week!
+    player: Player!
+    rank: Int!
+}
+
+input PlayCreateInput {
+    week_id: ID!
+    player_id: ID!
+    rank: Int!
+}
+
+input PlayEditInput {
+    play_id: ID!
+    week_id: ID!
+    player_id: ID!
+    rank: Int!
+}
+
+input PlayDeleteInput {
+    play_id: ID!
+}
+
+input PlayGetInput {
+    play_id: ID!
+}
+
+input PlaysGetByWeekInput {
+    week_id: ID!
+}
+
+extend type Mutation {
+    PlayCreate(playCreateRequest: PlayCreateInput!): Play
+    PlayEdit(playEditRequest: PlayEditInput!): Play
+    PlayDelete(playDeleteRequest: PlayDeleteInput!): Play
+}
+
+extend type Query {
+    PlayGet(playGetRequest: PlayGetInput!): Play
+    PlaysGetByWeek(playsGetByWeekRequest: PlaysGetByWeekInput!): [Play]!
+}
+
+#WEEK
+type Week {
+    week_id: ID
+    date_played: Date
+    plays: [Play!]!
+}
+
+input WeekCreateInput {
+    week_id: ID!
+    date_played: Date
+}
+
+input WeekEditInput {
+    week_id: ID!
+    date_played: Date
+}
+
+input WeekDeleteInput {
+    week_id: ID!
+}
+
+input WeekGetInput {
+    week_id: ID!
+}
+
+input WeeksGetBySeasonInput {
+    season_id: ID!
+}
+
+extend type Mutation {
+    WeekCreate(weekCreateRequest: WeekCreateInput!): Week
+    WeekEdit(weekEditRequest: WeekEditInput!): Week
+    WeekDelete(weekDeleteRequest: WeekDeleteInput!): Week
+}
+
+extend type Query {
+    WeekGet(weekGetRequest: WeekGetInput!): Week
+    WeeksGetBySeason(weeksGetBySeasonRequest: WeeksGetBySeasonInput!): [Week]!
+}
+
+#SEASON
+type Season {
+    season_id: ID
+    name: String!
+    weeks: [Week!]!
+}
+
+input SeasonCreateInput {
+    name: String!
+}
+
+input SeasonEditInput {
+    season_id: ID!
+    name: String!
+}
+
+input SeasonDeleteInput {
+    season_id: ID!
+}
+
+
+input SeasonGetInput {
+    season_id: ID!
+}
+
+extend type Mutation {
+    SeasonCreate(seasonCreateRequest: SeasonCreateInput!): Season
+    SeasonEdit(seasonEditRequest: SeasonEditInput!): Season
+    SeasonDelete(seasonDeleteRequest: SeasonDeleteInput!): Season
+}
+
+extend type Query {
+    SeasonGet(seasonGetRequest: SeasonGetInput!): Season
+}
+
+#REPORTS
+
+type Standing {
+    player: Player!
+    numberOfPlays: Int!
+    averageRank: Float!
+    points: Float!
+}
+
+input ReportGetStandingsInput {
+    season_id: ID!
+}
+
+extend type Query {
+    ReportGetStandings(reportGetStandingsRequest: ReportGetStandingsInput!): [Standing]!
+}

@@ -1,0 +1,7 @@
+mutation playerDelete($playerDeleteRequest: PlayerDeleteInput!) {
+  PlayDelete(playerDeleteRequest: $playerDeleteRequest){
+    player_id
+    name
+    active
+  }
+}
