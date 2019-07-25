@@ -209,6 +209,11 @@ input SeasonGetInput {
     season_id: ID!
 }
 
+input SeasonsGetInput {
+    season_id: ID
+}
+
+
 extend type Mutation {
     SeasonCreate(seasonCreateRequest: SeasonCreateInput!): Season
     SeasonEdit(seasonEditRequest: SeasonEditInput!): Season
@@ -217,6 +222,7 @@ extend type Mutation {
 
 extend type Query {
     SeasonGet(seasonGetRequest: SeasonGetInput!): Season
+    SeasonsGet(seasonsGetRequest: SeasonsGetInput!): [Season]
 }
 
 #REPORTS

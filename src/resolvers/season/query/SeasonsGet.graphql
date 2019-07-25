@@ -1,0 +1,10 @@
+query seasonsGet($seasonsGetRequest: SeasonsGetInput!) {
+    SeasonsGet(seasonsGetRequest: $seasonsGetRequest){
+        season_id
+        name
+        weeks {
+            week_id
+            date_played
+        }
+    }
+}

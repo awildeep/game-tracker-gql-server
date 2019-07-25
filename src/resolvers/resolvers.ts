@@ -25,6 +25,7 @@ import WeekGet from "./week/query/WeekGet";
 import WeeksGetBySeason from "./week/query/WeeksGetBySeason";
 
 import SeasonGet from "./season/query/SeasonGet";
+import SeasonsGet from "./season/query/SeasonsGet";
 import SeasonCreate from "./season/mutation/SeasonCreate";
 import SeasonDelete from "./season/mutation/SeasonDelete";
 import SeasonEdit from "./season/mutation/SeasonEdit";
@@ -49,6 +50,7 @@ const resolvers = {
         WeeksGetBySeason: combineResolvers(ReadCheck, WeeksGetBySeason),
 
         SeasonGet: combineResolvers(ReadCheck, SeasonGet),
+        SeasonsGet: combineResolvers(ReadCheck, SeasonsGet),
     },
     Mutation: {
         _,
