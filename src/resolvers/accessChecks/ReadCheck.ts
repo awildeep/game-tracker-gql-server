@@ -5,7 +5,7 @@ const ReadCheck = async (parent: any,
                           args: any,
                           context: any,
                           info: GraphQLResolveInfo) => {
-    console.log('ReadCheck: ', context.token, args);
+    console.log('ReadCheck');
     if (!context.me.can_login) {
         throw new ForbiddenError('Access denied.');
     }

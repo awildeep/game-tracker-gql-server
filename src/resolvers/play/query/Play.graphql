@@ -1,5 +1,5 @@
-query playGet($playGetRequest: PlayGetInput!) {
-  PlayGet(playGetRequest: $playGetRequest){
+query play($playRequest: PlayInput!) {
+  Play(playRequest: $playRequest){
     play_id
     week {
         week_id

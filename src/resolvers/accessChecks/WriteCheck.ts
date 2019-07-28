@@ -5,7 +5,7 @@ const WriteCheck = async (parent: any,
                          args: any,
                          context: any,
                          info: GraphQLResolveInfo) => {
-    console.log('WriteCheck: ', context.token, args);
+    console.log('WriteCheck');
     if (!context.me.admin) {
         throw new ForbiddenError('Access denied.');
     }

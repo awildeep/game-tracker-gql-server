@@ -38,7 +38,7 @@ const PlayEdit = async (parent: any,
     if (weeks.length === 1) {
         play.week = weeks[0];
     } else {
-        throw new Error('PlayGet Too many weeks '+ weeks.length);
+        throw new Error('Play Too many weeks '+ weeks.length);
     }
 
     const players = await database('players')
@@ -49,7 +49,7 @@ const PlayEdit = async (parent: any,
     if (players.length === 1) {
         play.player = players[0];
     } else {
-        throw new Error('PlayGet Too many players ' + players.length);
+        throw new Error('Play Too many players ' + players.length);
     }
 
     return play;

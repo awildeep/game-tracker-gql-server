@@ -28,7 +28,7 @@ const PlayDelete = async (parent: any,
     if (weeks.length === 1) {
         foundPlay.week = weeks[0];
     } else {
-        throw new Error('PlayGet Too many weeks '+ weeks.length);
+        throw new Error('Play Too many weeks '+ weeks.length);
     }
 
     const players = await database('players')
@@ -39,7 +39,7 @@ const PlayDelete = async (parent: any,
     if (players.length === 1) {
         foundPlay.player = players[0];
     } else {
-        throw new Error('PlayGet Too many players ' + players.length);
+        throw new Error('Play Too many players ' + players.length);
     }
 
 

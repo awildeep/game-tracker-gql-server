@@ -1,7 +1,0 @@
-query playerGet($playerGetRequest: PlayerGetInput!) {
-  PlayerGet(playerGetRequest: $playerGetRequest){
-    player_id
-    name
-    active
-  }
-}

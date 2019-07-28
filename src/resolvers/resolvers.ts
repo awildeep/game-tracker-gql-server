@@ -8,15 +8,14 @@ import Me from "./auth/query/Me";
 import Users from "./auth/query/Users";
 import SignIn from "./auth/mutation/SignIn";
 
-import PlayerGet from "./player/query/PlayerGet";
-import PlayersGet from "./player/query/PlayersGet";
-import PlayersGetByWeek from "./player/query/PlayersGetByWeek";
+import Player from "./player/query/Player";
+import Players from "./player/query/Players";
 import PlayerCreate from "./player/mutation/PlayerCreate";
 import PlayerEdit from "./player/mutation/PlayerEdit";
 import PlayerDelete from "./player/mutation/PlayerDelete";
 
-import PlayGet from "./play/query/PlayGet";
-import PlaysGetByWeek from "./play/query/PlaysGetByWeek";
+import Play from "./play/query/Play";
+import PlaysByWeek from "./play/query/PlaysByWeek";
 import PlayCreate from "./play/mutation/PlayCreate";
 import PlayEdit from "./play/mutation/PlayEdit";
 import PlayDelete from "./play/mutation/PlayDelete";
@@ -39,12 +38,11 @@ const resolvers = {
         Me: combineResolvers(ReadCheck, Me),
         Users: combineResolvers(ReadCheck, Users),
 
-        PlayerGet: combineResolvers(ReadCheck, PlayerGet),
-        PlayersGet: combineResolvers(ReadCheck, PlayersGet),
-        PlayersGetByWeek: combineResolvers(ReadCheck, PlayersGetByWeek),
+        Player: combineResolvers(ReadCheck, Player),
+        Players: combineResolvers(ReadCheck, Players),
 
-        PlayGet: combineResolvers(ReadCheck, PlayGet),
-        PlaysGetByWeek: combineResolvers(ReadCheck, PlaysGetByWeek),
+        Play: combineResolvers(ReadCheck, Play),
+        PlaysByWeek: combineResolvers(ReadCheck, PlaysByWeek),
 
         Week: combineResolvers(ReadCheck, Week),
         WeeksBySeason: combineResolvers(ReadCheck, WeeksBySeason),
@@ -74,7 +72,11 @@ const resolvers = {
     }
     ,
     Week: {
-        plays: combineResolvers(ReadCheck, PlaysGetByWeek),
+        plays: combineResolvers(ReadCheck, PlaysByWeek),
+    },
+    Play: {
+        week: combineResolvers(ReadCheck, Week),
+        player: combineResolvers(ReadCheck, Player),
     }
 };
 

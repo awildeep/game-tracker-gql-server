@@ -63,15 +63,15 @@ type Player {
     active: Boolean
 }
 
-input PlayersGetInput {
+input PlayersInput {
     active: Boolean
 }
 
-input PlayerGetInput {
+input PlayerInput {
     player_id: ID
 }
 
-input PlayerGetByWeekInput {
+input PlayerByWeekInput {
     week_id: ID
 }
 
@@ -95,9 +95,8 @@ extend type Mutation {
 }
 
 extend type Query {
-    PlayersGet(playersGetRequest: PlayersGetInput!): [Player]!
-    PlayerGet(playerGetRequest: PlayerGetInput!): Player
-    PlayersGetByWeek(playerGetByWeekRequest: PlayerGetByWeekInput!): [Player]!
+    Players(playersRequest: PlayersInput!): [Player]!
+    Player(playerRequest: PlayerInput!): Player
 }
 
 #PLAY
@@ -125,11 +124,11 @@ input PlayDeleteInput {
     play_id: ID!
 }
 
-input PlayGetInput {
+input PlayInput {
     play_id: ID!
 }
 
-input PlaysGetByWeekInput {
+input PlaysByWeekInput {
     week_id: ID!
 }
 
@@ -140,8 +139,8 @@ extend type Mutation {
 }
 
 extend type Query {
-    PlayGet(playGetRequest: PlayGetInput!): Play
-    PlaysGetByWeek(playsGetByWeekRequest: PlaysGetByWeekInput!): [Play]!
+    Play(playRequest: PlayInput!): Play
+    PlaysByWeek(playsByWeekRequest: PlaysByWeekInput!): [Play]!
 }
 
 #WEEK
