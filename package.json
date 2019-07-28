@@ -3,12 +3,12 @@
   "version": "1.0.0",
   "description": "GQL server for access to game-tracker data",
   "main": "index.js",
-  "license": "NONE",
+  "license": "MIT",
   "scripts": {
     "start": "npm run build:live",
     "build": "tsc -p .",
     "build:live": "nodemon --config nodemon.json",
-    "test": "node_modules/.bin/mocha"
+    "test": "node_modules/.bin/mocha --exit "
   },
   "dependencies": {
     "@graphql-codegen/typescript-react-apollo": "^1.4.0",

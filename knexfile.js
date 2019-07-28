@@ -1,5 +1,9 @@
 // Update with your config settings.
 
+const {resolve} = require('path');
+const {config} = require('dotenv');
+config({ path: resolve(__dirname, "./.env") });
+
 module.exports = {
   development: {
     client: "postgresql",
