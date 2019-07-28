@@ -7,10 +7,12 @@ const PlaysGetByWeek = async (parent: any,
                               info: GraphQLResolveInfo) => {
     console.log('PlaysGetByWeek called: ', context.token, args);
 
+    const weekId = (args.playsGetByWeekRequest) ? args.playsGetByWeekRequest.week_id : parent.week_id;
+
     let plays = await database('plays')
         .select()
         .where({
-            'plays.week_id': args.playsGetByWeekRequest.week_id
+            'plays.week_id': weekId
         });
 
     for (let index = 0; index < plays.length; index++) {

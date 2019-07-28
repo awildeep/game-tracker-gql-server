@@ -1,0 +1,10 @@
+query week($weekRequest: WeekInput!) {
+  Week(weekRequest: $weekRequest){
+    week_id
+    date_played
+    plays {
+        play_id
+        rank
+    }
+  }
+}

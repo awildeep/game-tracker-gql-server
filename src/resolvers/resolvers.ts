@@ -21,11 +21,11 @@ import PlayCreate from "./play/mutation/PlayCreate";
 import PlayEdit from "./play/mutation/PlayEdit";
 import PlayDelete from "./play/mutation/PlayDelete";
 
-import WeekGet from "./week/query/WeekGet";
-import WeeksGetBySeason from "./week/query/WeeksGetBySeason";
+import Week from "./week/query/Week";
+import WeeksBySeason from "./week/query/WeeksBySeason";
 
-import SeasonGet from "./season/query/SeasonGet";
-import SeasonsGet from "./season/query/SeasonsGet";
+import Season from "./season/query/Season";
+import Seasons from "./season/query/Seasons";
 import SeasonCreate from "./season/mutation/SeasonCreate";
 import SeasonDelete from "./season/mutation/SeasonDelete";
 import SeasonEdit from "./season/mutation/SeasonEdit";
@@ -46,11 +46,11 @@ const resolvers = {
         PlayGet: combineResolvers(ReadCheck, PlayGet),
         PlaysGetByWeek: combineResolvers(ReadCheck, PlaysGetByWeek),
 
-        WeekGet: combineResolvers(ReadCheck, WeekGet),
-        WeeksGetBySeason: combineResolvers(ReadCheck, WeeksGetBySeason),
+        Week: combineResolvers(ReadCheck, Week),
+        WeeksBySeason: combineResolvers(ReadCheck, WeeksBySeason),
 
-        SeasonGet: combineResolvers(ReadCheck, SeasonGet),
-        SeasonsGet: combineResolvers(ReadCheck, SeasonsGet),
+        Season: combineResolvers(ReadCheck, Season),
+        Seasons: combineResolvers(ReadCheck, Seasons),
     },
     Mutation: {
         _,
@@ -68,6 +68,13 @@ const resolvers = {
         SeasonCreate: combineResolvers(WriteCheck, SeasonCreate),
         SeasonEdit: combineResolvers(WriteCheck, SeasonEdit),
         SeasonDelete: combineResolvers(WriteCheck, SeasonDelete),
+    },
+    Season: {
+        weeks: combineResolvers(ReadCheck, WeeksBySeason),
+    }
+    ,
+    Week: {
+        plays: combineResolvers(ReadCheck, PlaysGetByWeek),
     }
 };
 

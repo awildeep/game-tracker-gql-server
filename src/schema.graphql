@@ -165,11 +165,11 @@ input WeekDeleteInput {
     week_id: ID!
 }
 
-input WeekGetInput {
+input WeekInput {
     week_id: ID!
 }
 
-input WeeksGetBySeasonInput {
+input WeeksBySeasonInput {
     season_id: ID!
 }
 
@@ -180,8 +180,8 @@ extend type Mutation {
 }
 
 extend type Query {
-    WeekGet(weekGetRequest: WeekGetInput!): Week
-    WeeksGetBySeason(weeksGetBySeasonRequest: WeeksGetBySeasonInput!): [Week]!
+    Week(weekRequest: WeekInput!): Week
+    WeeksBySeason(weeksBySeasonRequest: WeeksBySeasonInput!): [Week]!
 }
 
 #SEASON
@@ -205,11 +205,11 @@ input SeasonDeleteInput {
 }
 
 
-input SeasonGetInput {
+input SeasonInput {
     season_id: ID!
 }
 
-input SeasonsGetInput {
+input SeasonsInput {
     season_id: ID
 }
 
@@ -221,8 +221,8 @@ extend type Mutation {
 }
 
 extend type Query {
-    SeasonGet(seasonGetRequest: SeasonGetInput!): Season
-    SeasonsGet(seasonsGetRequest: SeasonsGetInput!): [Season]
+    Season(seasonRequest: SeasonInput!): Season
+    Seasons(seasonsRequest: SeasonsInput!): [Season]
 }
 
 #REPORTS
