@@ -8,9 +8,6 @@ const Play = async (parent: any,
     console.log('play: ', parent, args, context);
 
     const playId = (args.playRequest) ? args.playRequest.play_id : parent.play_id;
-
-    console.log('playId: ', playId);
-
     const plays = await database('plays')
         .select()
         .where({

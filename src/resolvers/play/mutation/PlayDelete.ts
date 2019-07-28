@@ -42,8 +42,6 @@ const PlayDelete = async (parent: any,
         throw new Error('Play Too many players ' + players.length);
     }
 
-
-
     return foundPlay;
 };
 

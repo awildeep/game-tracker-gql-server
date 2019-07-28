@@ -12,7 +12,6 @@ const PlayerCreate = async (parent: any,
         throw new Error(`A player with the name ${args.playerCreateRequest.name} already exists`);
     }
 
-
     const playerId = await database.insert(
         {
             name: args.playerCreateRequest.name,

@@ -7,10 +7,7 @@ const Seasons = async (parent: any,
                        info: GraphQLResolveInfo) => {
     console.log('Seasons: ', context.token);
 
-    const seasons = await database('seasons').select().where(args.seasonsRequest);
-
-
-    return seasons;
+    return await database('seasons').select().where(args.seasonsRequest);
 };
 
 export default Seasons;

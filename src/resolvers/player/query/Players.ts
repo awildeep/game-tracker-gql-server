@@ -7,12 +7,9 @@ const Players = async (parent: any,
                        info: GraphQLResolveInfo) => {
     console.log('Players: ', context.token, args);
 
-    const players = await database('players').select().where(
+    return await database('players').select().where(
         args.playersRequest
     );
-    return players
-
-
 };
 
 export default Players;

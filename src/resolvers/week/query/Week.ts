@@ -15,7 +15,6 @@ const Week = async (parent: any,
 
     return weeks[0];
 
-
 };
 
 export default Week;

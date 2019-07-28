@@ -9,13 +9,10 @@ const WeeksBySeason = async (parent: any,
 
     const seasonId = (args.weeksBySeasonRequest) ? args.weeksBySeasonRequest.season_id : parent.season_id;
 
-    let weeks = await database('weeks')
+    return await database('weeks')
         .where({
         'weeks.season_id': seasonId
     });
-
-    return weeks;
-
 };
 
 export default WeeksBySeason;

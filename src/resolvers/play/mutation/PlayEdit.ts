@@ -15,8 +15,7 @@ const PlayEdit = async (parent: any,
     if (foundPlays.length === 0) {
         throw new Error(`A play with the ID ${args.playEditRequest.play_id} does not exist`);
     }
-
-
+    
     await database('plays')
         .where({play_id: args.playEditRequest.play_id})
         .update({
