@@ -32,7 +32,7 @@ exports.seed = function(knex) {
                         can_login: true
                     },
                 ]),
-                knex.raw('ALTER SEQUENCE users_user_id_seq RESTART WITH 3'),
+                knex.raw('ALTER SEQUENCE users_user_id_seq RESTART WITH 4'),
             ]);
         });
 };

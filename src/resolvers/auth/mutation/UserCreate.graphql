@@ -1,0 +1,9 @@
+mutation UserCreate ($userCreateRequest: UserCreateInput) {
+    UserCreate(userCreateRequest: $userCreateRequest) {
+        user_id
+        username
+        name
+        admin
+        can_login
+    }
+}

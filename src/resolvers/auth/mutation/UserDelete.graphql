@@ -1,0 +1,9 @@
+mutation UserDelete ($userDeleteRequest: UserDeleteInput) {
+    UserDelete(userDeleteRequest: $userDeleteRequest) {
+        user_id
+        username
+        name
+        admin
+        can_login
+    }
+}

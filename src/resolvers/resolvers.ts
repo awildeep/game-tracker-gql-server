@@ -7,6 +7,9 @@ import WriteCheck from './accessChecks/WriteCheck';
 import Me from "./auth/query/Me";
 import Users from "./auth/query/Users";
 import SignIn from "./auth/mutation/SignIn";
+import UserCreate from "./auth/mutation/UserCreate";
+import UserEdit from "./auth/mutation/UserEdit";
+import UserDelete from "./auth/mutation/UserDelete";
 
 import Player from "./player/query/Player";
 import Players from "./player/query/Players";
@@ -58,6 +61,9 @@ const resolvers = {
         _,
 
         SignIn: combineResolvers(GuestCheck, SignIn),
+        UserCreate: combineResolvers(WriteCheck, UserCreate),
+        UserEdit: combineResolvers(WriteCheck, UserEdit),
+        UserDelete: combineResolvers(WriteCheck, UserDelete),
 
         PlayerCreate: combineResolvers(WriteCheck, PlayerCreate),
         PlayerEdit: combineResolvers(WriteCheck, PlayerEdit),

@@ -15,8 +15,10 @@ type Subscription {
 #AUTH
 type User {
     user_id: ID!
-    username: String!
+    username: String
+    name: String
     admin: Boolean
+    can_login: Boolean
 }
 
 type Token {
@@ -46,10 +48,34 @@ input SignInInput {
     password: String
 }
 
+input UserCreateInput {
+    username: String
+    name: String
+    password: String
+    admin: Boolean
+    can_login: Boolean
+}
+
+input UserEditInput {
+    user_id: String
+    username: String
+    name: String
+    password: String
+    admin: Boolean
+    can_login: Boolean
+}
+
+input UserDeleteInput {
+    user_id: String
+}
+
 
 extend type Mutation {
     SignUp(signUpRequest: SignUpInput): Token!
     SignIn(signInRequest: SignInInput): Token!
+    UserCreate(userCreateRequest: UserCreateInput): User!
+    UserEdit(userEditRequest: UserEditInput): User!
+    UserDelete(userDeleteRequest: UserDeleteInput): User!
 }
 
 

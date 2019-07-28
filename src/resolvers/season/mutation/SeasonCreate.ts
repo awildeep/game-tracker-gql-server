@@ -19,21 +19,7 @@ const SeasonCreate = async (parent: any,
 
     const seasons = await database('seasons').select().where({'season_id': Number(seasonId)});
 
-    let season = seasons[0];
-
-    const weeks = await database('weeks')
-        .select()
-        .where({
-            'season_id': Number(seasonId)
-        });
-    if (weeks.length !== 0) {
-        season.weeks = weeks;
-    } else {
-        season.weeks = [];
-    }
-
-
-    return season;
+    return seasons[0];
 
 };
 

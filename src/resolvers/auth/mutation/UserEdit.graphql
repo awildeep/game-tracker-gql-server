@@ -1,0 +1,9 @@
+mutation UserEdit ($userEditRequest: UserEditInput) {
+    UserEdit(userEditRequest: $userEditRequest) {
+        user_id
+        username
+        name
+        admin
+        can_login
+    }
+}

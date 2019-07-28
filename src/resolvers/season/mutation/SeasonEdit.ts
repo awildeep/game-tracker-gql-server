@@ -21,7 +21,6 @@ const SeasonEdit = async (parent: any,
         throw new Error(`A season with the name ${args.seasonEditRequest.name} already exists`);
     }
 
-
     await database('seasons')
         .where({season_id: args.seasonEditRequest.season_id})
         .update({
@@ -32,21 +31,7 @@ const SeasonEdit = async (parent: any,
         .select()
         .where({'season_id': Number(args.seasonEditRequest.season_id)});
 
-    let season = seasons[0];
-
-    const weeks = await database('weeks')
-        .select()
-        .where({
-            'season_id': args.seasonEditRequest.season_id
-        });
-    if (weeks.length !== 0) {
-        season.weeks = weeks;
-    } else {
-        season.weeks = [];
-    }
-
-
-    return season;
+    return seasons[0];
 
 };
 

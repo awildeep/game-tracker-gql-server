@@ -15,18 +15,6 @@ const SeasonDelete = async (parent: any,
     }
     let season = foundSeasons[0];
 
-    const weeks = await database('weeks')
-        .select()
-        .where({
-            'season_id': args.seasonDeleteRequest.season_id
-        });
-    if (weeks.length !== 0) {
-        season.weeks = weeks;
-    } else {
-        season.weeks = [];
-    }
-
-
     await database('seasons')
         .where({season_id: args.seasonDeleteRequest.season_id})
         .del();
