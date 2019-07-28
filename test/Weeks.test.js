@@ -13,12 +13,12 @@ describe('Week', () => {
                 "weekRequest": {
                     week_id: 1
                 }
-            }, {token: tokenData.SignIn.token || ""});
+            }, {token: tokenData.data.SignIn.token || ""});
 
-        expect(data).to.have.property('Week');
-        expect(data.Week).to.have.property('week_id');
-        expect(data.Week).to.have.property('date_played');
-        expect(data.Week).to.have.property('plays');
+        expect(data.data).to.have.property('Week');
+        expect(data.data.Week).to.have.property('week_id');
+        expect(data.data.Week).to.have.property('date_played');
+        expect(data.data.Week).to.have.property('plays');
 
     });
 
@@ -30,13 +30,13 @@ describe('Week', () => {
                 "weeksBySeasonRequest": {
                     season_id: 1
                 }
-            }, {token: tokenData.SignIn.token || ""});
+            }, {token: tokenData.data.SignIn.token || ""});
 
-        expect(data).to.have.property('WeeksBySeason');
-        expect(data.WeeksBySeason).to.have.be.instanceof(Array);
-        expect(data.WeeksBySeason[0]).to.have.property('week_id');
-        expect(data.WeeksBySeason[0]).to.have.property('date_played');
-        expect(data.WeeksBySeason[0]).to.have.property('plays');
-        expect(data.WeeksBySeason[0].plays).to.have.be.instanceof(Array);
+        expect(data.data).to.have.property('WeeksBySeason');
+        expect(data.data.WeeksBySeason).to.have.be.instanceof(Array);
+        expect(data.data.WeeksBySeason[0]).to.have.property('week_id');
+        expect(data.data.WeeksBySeason[0]).to.have.property('date_played');
+        expect(data.data.WeeksBySeason[0]).to.have.property('plays');
+        expect(data.data.WeeksBySeason[0].plays).to.have.be.instanceof(Array);
     });
 });

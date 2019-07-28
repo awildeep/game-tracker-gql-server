@@ -21,7 +21,7 @@ const queryServer = async (query, variables, config) => {
         body: JSON.stringify({query, variables})
     })
         .then(r => r.json());
-    return data.data;
+    return data;
 };
 
 module.exports = {

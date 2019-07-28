@@ -17,7 +17,12 @@ const signInAdmin = async () => {
     return await signIn("awildeep@gmail.com", "testing1");
 };
 
+const signInNonAdmin = async () => {
+    return await signIn("greg@thinkof.net", "testing1");
+};
+
 module.exports = {
     signIn,
-    signInAdmin
+    signInAdmin,
+    signInNonAdmin
 };

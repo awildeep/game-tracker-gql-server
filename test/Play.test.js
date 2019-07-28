@@ -13,13 +13,13 @@ describe('Play', () => {
                 "playRequest": {
                     play_id: 1
                 }
-            }, {token: tokenData.SignIn.token || ""});
+            }, {token: tokenData.data.SignIn.token || ""});
 
-        expect(data).to.have.property('Play');
-        expect(data.Play).to.have.property('week');
-        expect(data.Play).to.have.property('player');
-        expect(data.Play).to.have.property('rank');
-        expect(data.Play.week).to.have.be.instanceof(Object);
-        expect(data.Play.player).to.have.be.instanceof(Object);
+        expect(data.data).to.have.property('Play');
+        expect(data.data.Play).to.have.property('week');
+        expect(data.data.Play).to.have.property('player');
+        expect(data.data.Play).to.have.property('rank');
+        expect(data.data.Play.week).to.have.be.instanceof(Object);
+        expect(data.data.Play.player).to.have.be.instanceof(Object);
     });
 });

@@ -11,13 +11,13 @@ describe('Player', () => {
         const data = await queryServer(seasonsQuery,
             {
                 "playersRequest": {}
-            }, {token: tokenData.SignIn.token || ""});
+            }, {token: tokenData.data.SignIn.token || ""});
 
-        expect(data).to.have.property('Players');
-        expect(data.Players).to.have.be.instanceof(Array);
-        expect(data.Players[0]).to.have.property('player_id');
-        expect(data.Players[0]).to.have.property('name');
-        expect(data.Players[0]).to.have.property('active');
+        expect(data.data).to.have.property('Players');
+        expect(data.data.Players).to.have.be.instanceof(Array);
+        expect(data.data.Players[0]).to.have.property('player_id');
+        expect(data.data.Players[0]).to.have.property('name');
+        expect(data.data.Players[0]).to.have.property('active');
 
     });
 
@@ -29,11 +29,11 @@ describe('Player', () => {
                 "playerRequest": {
                     player_id: 1
                 }
-            }, {token: tokenData.SignIn.token || ""});
+            }, {token: tokenData.data.SignIn.token || ""});
 
-        expect(data).to.have.property('Player');
-        expect(data.Player).to.have.property('player_id');
-        expect(data.Player).to.have.property('name');
-        expect(data.Player).to.have.property('active');
+        expect(data.data).to.have.property('Player');
+        expect(data.data.Player).to.have.property('player_id');
+        expect(data.data.Player).to.have.property('name');
+        expect(data.data.Player).to.have.property('active');
     });
 });
