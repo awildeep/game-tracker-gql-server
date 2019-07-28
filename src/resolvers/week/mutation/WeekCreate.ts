@@ -13,27 +13,13 @@ const WeekCreate = async (parent: any,
     }
 
 
-    const seasonId = await database.insert(
-        args.seasonCreateRequest,
-        'season_id').into('seasons');
+    const weekId = await database.insert(
+        args.weekCreateRequest,
+        'week_id').into('weeks');
 
-    const seasons = await database('seasons').select().where({'season_id': Number(seasonId)});
+    const weeks = await database('weeks').select().where({'week_id': Number(weekId)});
 
-    let season = seasons[0];
-
-    const weeks = await database('weeks')
-        .select()
-        .where({
-            'season_id': Number(seasonId)
-        });
-    if (weeks.length !== 0) {
-        season.weeks = weeks;
-    } else {
-        season.weeks = [];
-    }
-
-
-    return season;
+    return weeks[0];
 
 };
 

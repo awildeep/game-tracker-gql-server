@@ -7,8 +7,8 @@ const {join} = require('path');
 describe('Play', () => {
     it('Should fetch a specific play', async () => {
         const tokenData = await signInAdmin();
-        const playsQuery = readFileSync(join(__dirname, "../src/resolvers/play/query/Play.graphql"), 'UTF-8');
-        const data = await queryServer(playsQuery,
+        const query = readFileSync(join(__dirname, "../src/resolvers/play/query/Play.graphql"), 'UTF-8');
+        const data = await queryServer(query,
             {
                 "playRequest": {
                     play_id: 1

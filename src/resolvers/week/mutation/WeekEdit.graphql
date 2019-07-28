@@ -1,0 +1,10 @@
+mutation weekEdit($weekEditRequest: WeekEditInput!) {
+    WeekEdit(weekEditRequest: $weekEditRequest){
+        week_id
+        date_played
+        plays {
+            play_id
+            rank
+        }
+    }
+}

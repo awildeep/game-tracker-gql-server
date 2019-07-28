@@ -22,12 +22,16 @@ import PlayDelete from "./play/mutation/PlayDelete";
 
 import Week from "./week/query/Week";
 import WeeksBySeason from "./week/query/WeeksBySeason";
+import WeekCreate from "./week/mutation/WeekCreate";
+import WeekEdit from "./week/mutation/WeekEdit";
+import WeekDelete from "./week/mutation/WeekDelete";
 
 import Season from "./season/query/Season";
 import Seasons from "./season/query/Seasons";
 import SeasonCreate from "./season/mutation/SeasonCreate";
 import SeasonDelete from "./season/mutation/SeasonDelete";
 import SeasonEdit from "./season/mutation/SeasonEdit";
+
 
 
 const _ = () => true;
@@ -66,6 +70,10 @@ const resolvers = {
         SeasonCreate: combineResolvers(WriteCheck, SeasonCreate),
         SeasonEdit: combineResolvers(WriteCheck, SeasonEdit),
         SeasonDelete: combineResolvers(WriteCheck, SeasonDelete),
+
+        WeekEdit: combineResolvers(WriteCheck, WeekEdit),
+        WeekCreate: combineResolvers(WriteCheck, WeekCreate),
+        WeekDelete: combineResolvers(WriteCheck, WeekDelete),
     },
     Season: {
         weeks: combineResolvers(ReadCheck, WeeksBySeason),

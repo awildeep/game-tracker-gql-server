@@ -14,10 +14,10 @@ describe('Auth', () => {
     it('Should allow a user to see who they are', async () => {
         const tokenData = await signInAdmin();
 
-        const meQuery = readFileSync(join(__dirname, "../src/resolvers/auth/query/me.graphql"), 'UTF-8');
+        const query = readFileSync(join(__dirname, "../src/resolvers/auth/query/me.graphql"), 'UTF-8');
 
         expect(tokenData.data.SignIn.token).to.have.lengthOf.above(1);
-        const data = await queryServer(meQuery, {}, {token: tokenData.data.SignIn.token || ""});
+        const data = await queryServer(query, {}, {token: tokenData.data.SignIn.token || ""});
 
         expect(data.data).to.have.property('Me');
         expect(data.data.Me).to.have.property('username');

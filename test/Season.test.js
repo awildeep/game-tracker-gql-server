@@ -13,8 +13,8 @@ describe('Season', () => {
 
     it('Should prevent creating from a non-admin user', async () => {
         const tokenData = await signInNonAdmin();
-        const seasonsQuery = readFileSync(join(__dirname, "../src/resolvers/season/mutation/SeasonCreate.graphql"), 'UTF-8');
-        const data = await queryServer(seasonsQuery,
+        const query = readFileSync(join(__dirname, "../src/resolvers/season/mutation/SeasonCreate.graphql"), 'UTF-8');
+        const data = await queryServer(query,
             {
                 "seasonCreateRequest": {
                     name: "test season"
@@ -27,8 +27,8 @@ describe('Season', () => {
 
     it('Should prevent delete from a non-admin user', async () => {
         const tokenData = await signInNonAdmin();
-        const seasonsQuery = readFileSync(join(__dirname, "../src/resolvers/season/mutation/SeasonDelete.graphql"), 'UTF-8');
-        const data = await queryServer(seasonsQuery,
+        const query = readFileSync(join(__dirname, "../src/resolvers/season/mutation/SeasonDelete.graphql"), 'UTF-8');
+        const data = await queryServer(query,
             {
                 "seasonDeleteRequest": {
                     season_id: 1
@@ -41,8 +41,8 @@ describe('Season', () => {
 
     it('Should prevent editing from a non-admin user', async () => {
         const tokenData = await signInNonAdmin();
-        const seasonsQuery = readFileSync(join(__dirname, "../src/resolvers/season/mutation/SeasonEdit.graphql"), 'UTF-8');
-        const data = await queryServer(seasonsQuery,
+        const query = readFileSync(join(__dirname, "../src/resolvers/season/mutation/SeasonEdit.graphql"), 'UTF-8');
+        const data = await queryServer(query,
             {
                 "seasonEditRequest": {
                     season_id: 1,
@@ -56,8 +56,8 @@ describe('Season', () => {
 
     it('Should be able to create a season', async () => {
         const tokenData = await signInAdmin();
-        const seasonsQuery = readFileSync(join(__dirname, "../src/resolvers/season/mutation/SeasonCreate.graphql"), 'UTF-8');
-        const data = await queryServer(seasonsQuery,
+        const query = readFileSync(join(__dirname, "../src/resolvers/season/mutation/SeasonCreate.graphql"), 'UTF-8');
+        const data = await queryServer(query,
             {
                 "seasonCreateRequest": {
                     name: "test season"
@@ -71,8 +71,8 @@ describe('Season', () => {
 
     it('Should be able to edit a season', async () => {
         const tokenData = await signInAdmin();
-        const seasonsQuery = readFileSync(join(__dirname, "../src/resolvers/season/mutation/SeasonEdit.graphql"), 'UTF-8');
-        const data = await queryServer(seasonsQuery,
+        const query = readFileSync(join(__dirname, "../src/resolvers/season/mutation/SeasonEdit.graphql"), 'UTF-8');
+        const data = await queryServer(query,
             {
                 "seasonEditRequest": {
                     season_id: 1,
@@ -87,8 +87,8 @@ describe('Season', () => {
 
     it('Should be able to delete a season', async () => {
         const tokenData = await signInAdmin();
-        const seasonCreateQuery = readFileSync(join(__dirname, "../src/resolvers/season/mutation/SeasonCreate.graphql"), 'UTF-8');
-        const newSeasonData = await queryServer(seasonCreateQuery,
+        const query = readFileSync(join(__dirname, "../src/resolvers/season/mutation/SeasonCreate.graphql"), 'UTF-8');
+        const newSeasonData = await queryServer(query,
             {
                 "seasonCreateRequest": {
                     name: "test season"
@@ -99,8 +99,8 @@ describe('Season', () => {
         expect(newSeasonData.data.SeasonCreate).to.have.property('name');
         expect(newSeasonData.data.SeasonCreate.name).to.equal("test season");
 
-        const seasonDeleteQuery = readFileSync(join(__dirname, "../src/resolvers/season/mutation/SeasonDelete.graphql"), 'UTF-8');
-        const data = await queryServer(seasonDeleteQuery,
+        const deleteQuery = readFileSync(join(__dirname, "../src/resolvers/season/mutation/SeasonDelete.graphql"), 'UTF-8');
+        const data = await queryServer(deleteQuery,
             {
                 "seasonDeleteRequest": {
                     season_id: newSeasonData.data.SeasonCreate.season_id
@@ -113,8 +113,8 @@ describe('Season', () => {
 
     it('Should fetch a list of seasons', async () => {
         const tokenData = await signInAdmin();
-        const seasonsQuery = readFileSync(join(__dirname, "../src/resolvers/season/query/Seasons.graphql"), 'UTF-8');
-        const data = await queryServer(seasonsQuery,
+        const query = readFileSync(join(__dirname, "../src/resolvers/season/query/Seasons.graphql"), 'UTF-8');
+        const data = await queryServer(query,
             {
                 "seasonsRequest": {}
             }, {token: tokenData.data.SignIn.token || ""});
@@ -130,8 +130,8 @@ describe('Season', () => {
 
     it('Should fetch a specific season', async () => {
         const tokenData = await signInAdmin();
-        const seasonsQuery = readFileSync(join(__dirname, "../src/resolvers/season/query/Season.graphql"), 'UTF-8');
-        const data = await queryServer(seasonsQuery,
+        const query = readFileSync(join(__dirname, "../src/resolvers/season/query/Season.graphql"), 'UTF-8');
+        const data = await queryServer(query,
             {
                 "seasonRequest": {
                     season_id: 1

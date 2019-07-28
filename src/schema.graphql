@@ -151,7 +151,7 @@ type Week {
 }
 
 input WeekCreateInput {
-    week_id: ID!
+    season_id: ID!
     date_played: Date
 }
 

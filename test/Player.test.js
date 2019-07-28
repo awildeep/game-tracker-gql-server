@@ -7,8 +7,8 @@ const {join} = require('path');
 describe('Player', () => {
     it('Should fetch a list of players', async () => {
         const tokenData = await signInAdmin();
-        const seasonsQuery = readFileSync(join(__dirname, "../src/resolvers/player/query/Players.graphql"), 'UTF-8');
-        const data = await queryServer(seasonsQuery,
+        const query = readFileSync(join(__dirname, "../src/resolvers/player/query/Players.graphql"), 'UTF-8');
+        const data = await queryServer(query,
             {
                 "playersRequest": {}
             }, {token: tokenData.data.SignIn.token || ""});
@@ -23,8 +23,8 @@ describe('Player', () => {
 
     it('Should fetch a specific player', async () => {
         const tokenData = await signInAdmin();
-        const seasonsQuery = readFileSync(join(__dirname, "../src/resolvers/player/query/Player.graphql"), 'UTF-8');
-        const data = await queryServer(seasonsQuery,
+        const query = readFileSync(join(__dirname, "../src/resolvers/player/query/Player.graphql"), 'UTF-8');
+        const data = await queryServer(query,
             {
                 "playerRequest": {
                     player_id: 1
