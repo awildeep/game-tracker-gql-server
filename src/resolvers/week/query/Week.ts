@@ -1,7 +1,6 @@
 import {GraphQLResolveInfo} from "graphql";
-import database from '../../../database';
 
-const Week = async (parent: any,
+const Week = (parent: any,
                     args: any,
                     context: any,
                     info: GraphQLResolveInfo) => {
@@ -9,12 +8,7 @@ const Week = async (parent: any,
 
     const weekId = (args.weekRequest) ? args.weekRequest.week_id : parent.week_id;
 
-    const weeks = await database('weeks').select().where(
-        {week_id: weekId}
-    );
-
-    return weeks[0];
-
+    return context.dataloaders.weeksByIds.load([weekId]);
 };
 
 export default Week;

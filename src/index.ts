@@ -12,6 +12,8 @@ import session from 'express-session';
 import cors from 'cors';
 import jwt from 'jsonwebtoken';
 import {getMe} from "./resolvers/auth/query/Me";
+import dataloaders from "./dataloaders";
+import datafetchers from "./datafetchers";
 
 config({ path: resolve(__dirname, "../.env") });
 
@@ -73,6 +75,8 @@ const server = new ApolloServer(
                 me,
                 tokenContents,
                 jwt_secret: process.env.JWT_SECRET || "",
+                dataloaders: dataloaders(),
+                datafetchers: datafetchers()
             };
         }
     }

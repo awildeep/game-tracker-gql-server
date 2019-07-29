@@ -1,5 +1,4 @@
 import {GraphQLResolveInfo} from "graphql";
-import database from '../../../database';
 
 const Season = async (parent: any,
                       args: any,
@@ -7,8 +6,7 @@ const Season = async (parent: any,
                       info: GraphQLResolveInfo) => {
     console.log('Season: ', args);
 
-    const seasons = await database('seasons').select().where(args.seasonRequest);
-    return seasons[0];
+    return context.dataloaders.seasonsByIds.load([args.seasonRequest.season_id]);
 };
 
 export default Season;
