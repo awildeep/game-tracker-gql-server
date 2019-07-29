@@ -1,5 +1,4 @@
 import {GraphQLResolveInfo} from "graphql";
-import database from '../../../database';
 
 const WeeksBySeason = (parent: any,
                                 args: any,

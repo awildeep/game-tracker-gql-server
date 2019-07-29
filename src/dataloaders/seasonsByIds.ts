@@ -1,6 +1,6 @@
 import seasonGetByIds from "../datafetchers/seasonGetByIds";
 
-const seasonsByIds   = async (seasonIds) => {
+const seasonsByIds  = (seasonIds) => {
     return seasonGetByIds(seasonIds);
 };
 

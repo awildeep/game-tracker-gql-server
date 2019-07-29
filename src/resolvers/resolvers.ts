@@ -83,8 +83,7 @@ const resolvers = {
     },
     Season: {
         weeks: combineResolvers(ReadCheck, WeeksBySeason),
-    }
-    ,
+    },
     Week: {
         plays: combineResolvers(ReadCheck, PlaysByWeek),
     },
